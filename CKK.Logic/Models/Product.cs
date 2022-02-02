@@ -12,9 +12,9 @@ namespace CKK.Logic.Models
       private string name;                   //name instance variable
       private decimal price;                 //price instance variable
 
-      public int Id { get; set; }            //auto-implemented property for Id
-      public string Name { get; set; }       //auto-implemented property for Name
-      public decimal Price { get; set; }     //auto-implemented property for Price
+      public int Id;           //auto-implemented property for Id
+      public string Name;       //auto-implemented property for Name
+      public decimal Price;     //auto-implemented property for Price
 
 
       public int GetId()
