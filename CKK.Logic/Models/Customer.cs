@@ -35,7 +35,7 @@ namespace CKK.Logic.Models
       }
       public void SetAddress(string address)
       {
-         address = Address;
+         Address = address;
       }
 
    }
