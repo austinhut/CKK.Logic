@@ -15,5 +15,31 @@ namespace CKK.Logic.Models
       public int Id { get; set; }            //auto-implemented property for Id
       public string Name { get; set; }       //auto-implemented property for Name
       public string Address { get; set; }    //auto-implemented property for Address
+
+      public int GetId()
+      {
+         return Id;
+      }
+      public void SetId(int Id)
+      {
+         id = Id;
+      }
+      public string GetName(string Name)
+      {
+         return Name;
+      }
+      public void SetName(string Name)
+      {
+         name = Name;
+      }
+      public string GetAddress()
+      {
+         return Address;
+      }
+      public void SetAddress(string Address)
+      {
+         address = Address;
+      }
+
    }
 }
