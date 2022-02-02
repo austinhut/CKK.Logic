@@ -24,7 +24,7 @@ namespace CKK.Logic.Models
       {
          id = Id;
       }
-      public string GetName(string Name)
+      public string GetName()
       {
          return Name;
       }
