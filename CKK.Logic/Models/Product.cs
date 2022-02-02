@@ -15,5 +15,13 @@ namespace CKK.Logic.Models
       public int Id { get; set; }            //auto-implemented property for Id
       public string Name { get; set; }       //auto-implemented property for Name
       public decimal Price { get; set; }     //auto-implemented property for Price
-   }
+      
+
+      public SetId(int id, Product)
+      public GetId()
+        {
+            Product.id = id;
+        }
+    
+    }
 }
