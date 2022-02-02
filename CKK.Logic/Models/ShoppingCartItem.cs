@@ -8,8 +8,8 @@ namespace CKK.Logic.Models
 {
    public class ShoppingCartItem
    {
-      private Product product;         //product instance variable
-      private int quantity;            //quantity instance variable     
+      private Product Product;         //product instance variable
+      private int Quantity;            //quantity instance variable     
 
       
       //ShoppingCartItem constructor; sets the constructor's
@@ -19,24 +19,22 @@ namespace CKK.Logic.Models
             Product = product;
             Quantity = quantity;
          }
-      public Product Product { get; set; }         //auto-implemented property for Product
-      public int Quantity { get; set; }            //auto-implemented property for Quantity
 
       public int GetQuantity()
       {
          return Quantity;
       }
-      public void SetQuantity(int Quantity)
+      public void SetQuantity(int quantity)
       {
-         quantity = Quantity;
+         Quantity = quantity;
       }
       public Product GetProduct()
       {
          return Product;
       }
-      public void SetProduct(Product Product)
+      public void SetProduct(Product product)
       {
-         product = Product;
+         Product = product;
       }
    }
 }
