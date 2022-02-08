@@ -14,6 +14,7 @@ namespace CKK.Logic.Models
       private Product _Product2;
       private Product _Product3;
 
+      
       public int GetId()
       {
          return _Id;
@@ -67,35 +68,36 @@ namespace CKK.Logic.Models
 
       public Product GetStoreItem(int productNum)
       {
-         if (_Product1 != null)
+         if (productNum == 1)
          {
             return _Product1;
          }
-         else if (_Product2 != null)
+         else if (productNum == 2)
          {
             return _Product2;
          }
-         else if (_Product3 != null)
+         else if (productNum == 3)
          {
             return _Product3;
          }
-         
+         return null;
       }
 
-      public int FindStoreItembyId(int Id)
+      public Product FindStoreItemById(int Id)
       {
-         if (_Product1 != null)
+         if (_Product1.GetId() == Id)
          {
-            _Product1.GetId();
+            return _Product1;
          }
-         else if (_Product2 != null)
+         else if (_Product2.GetId() == Id)
          {
-            _Product2.GetId();
+            return _Product2;
          }
-         else if (_Product3 != null)
+         else if (_Product3.GetId() == Id)
          {
-            _Product3.GetId();
+            return _Product3;
          }
+         return null;
       }
 
 
