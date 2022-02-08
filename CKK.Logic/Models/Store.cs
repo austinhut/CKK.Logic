@@ -8,83 +8,94 @@ namespace CKK.Logic.Models
 {
    public class Store
    {
-      private int _id;
-      private string _name;
-      private Product _product1;
-      private Product _product2;
-      private Product _product3;
+      private int _Id;
+      private string _Name;
+      private Product _Product1;
+      private Product _Product2;
+      private Product _Product3;
 
       public int GetId()
       {
-         return _id;
+         return _Id;
       }
       public void SetId(int id)
       {
-         _id = id;
+         _Id = id;
       }
       public string GetName()
       {
-         return _name;
+         return _Name;
       }
       public void SetName(string name)
       {
-         _name = name;
+         _Name = name;
       }
 
 
       public void AddStoreItem(Product prod)
       {
-         if (_product1 == null)
+         if (_Product1 == null)
          {
-            _product1 = prod;
+            _Product1 = prod;
          }
-         else if (_product2 == null)
+         else if (_Product2 == null)
          {
-            _product2 = prod;
+            _Product2 = prod;
          }
-         else if (_product3 == null)
+         else if (_Product3 == null)
          {
-            _product3 = prod;
+            _Product3 = prod;
          }
 
       }
       public void RemoveStoreItem(int productNum)
       {
-         if (_product1 != null)
+         if (_Product1 != null)
          {
-            _product1 = null;
+            _Product1 = null;
          }
-         else if (_product2 != null)
+         else if (_Product2 != null)
          {
-            _product2 = null;
+            _Product2 = null;
          }
-         else if (_product3 != null)
+         else if (_Product3 != null)
          {
-            _product3 = null;
+            _Product3 = null;
          }
          
       }
 
       public Product GetStoreItem(int productNum)
       {
-         if (_product1 != null)
+         if (_Product1 != null)
          {
-            return _product1;
+            return _Product1;
          }
-         else if (_product2 != null)
+         else if (_Product2 != null)
          {
-            return _product2;
+            return _Product2;
          }
-         else if (_product3 != null)
+         else if (_Product3 != null)
          {
-            return _product3;
+            return _Product3;
          }
          
       }
 
-      public int FindStoreItembyId(int id)
+      public int FindStoreItembyId(int Id)
       {
-
+         if (_Product1 != null)
+         {
+            _Product1.GetId();
+         }
+         else if (_Product2 != null)
+         {
+            _Product2.GetId();
+         }
+         else if (_Product3 != null)
+         {
+            _Product3.GetId();
+         }
       }
 
 
