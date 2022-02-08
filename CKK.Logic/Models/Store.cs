@@ -58,8 +58,8 @@
             _Product3 = null;
          }
 
-
-      Product GetStoreItem(int productNum)
+      }
+      public Product GetStoreItem(int productNum)
       {
          if (productNum == 1)
          {
@@ -76,7 +76,7 @@
          return null;
       }
 
-      Product FindStoreItemById(int Id)
+      public Product FindStoreItemById(int Id)
       {
          if (_Product1.GetId() == Id)
          {
@@ -91,7 +91,6 @@
             return _Product3;
          }
          return null;
-         }
       }
    }
 }
