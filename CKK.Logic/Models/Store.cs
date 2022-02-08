@@ -59,7 +59,7 @@
          }
 
 
-         Product GetStoreItem(int productNum)
+      Product GetStoreItem(int productNum)
          {
             if (productNum == 1)
             {
@@ -76,7 +76,7 @@
             return null;
          }
 
-         Product FindStoreItemById(int Id)
+      Product FindStoreItemById(int Id)
          {
             if (_Product1.GetId() == Id)
             {
