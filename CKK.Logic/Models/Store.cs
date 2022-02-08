@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CKK.Logic.Models
+﻿namespace CKK.Logic.Models
 {
    public class Store
    {
@@ -14,7 +8,7 @@ namespace CKK.Logic.Models
       private Product _Product2;
       private Product _Product3;
 
-      
+
       public int GetId()
       {
          return _Id;
@@ -35,7 +29,7 @@ namespace CKK.Logic.Models
 
       public void AddStoreItem(Product prod)
       {
-         if (_Product1 == null)  //test
+         if (_Product1 == null)
          {
             _Product1 = prod;
          }
@@ -51,55 +45,53 @@ namespace CKK.Logic.Models
       }
       public void RemoveStoreItem(int productNum)
       {
-         if (_Product1 != null)
+         if (productNum == 1)
          {
             _Product1 = null;
          }
-         if (_Product2 != null)
+         else if (productNum == 2)
          {
             _Product2 = null;
          }
-         if (_Product3 != null)
+         else if (productNum == 3)
          {
             _Product3 = null;
          }
-         
+
+
+         Product GetStoreItem(int productNum)
+         {
+            if (productNum == 1)
+            {
+               return _Product1;
+            }
+            else if (productNum == 2)
+            {
+               return _Product2;
+            }
+            else if (productNum == 3)
+            {
+               return _Product3;
+            }
+            return null;
+         }
+
+         Product FindStoreItemById(int Id)
+         {
+            if (_Product1.GetId() == Id)
+            {
+               return _Product1;
+            }
+            else if (_Product2.GetId() == Id)
+            {
+               return _Product2;
+            }
+            else if (_Product3.GetId() == Id)
+            {
+               return _Product3;
+            }
+            return null;
+         }
       }
-
-      public Product GetStoreItem(int productNum)
-      {
-         if (productNum == 1)
-         {
-            return _Product1;
-         }
-         else if (productNum == 2)
-         {
-            return _Product2;
-         }
-         else if (productNum == 3)
-         {
-            return _Product3;
-         }
-         return null;
-      }
-
-      public Product FindStoreItemById(int Id)
-      {
-         if (_Product1.GetId() == Id)
-         {
-            return _Product1;
-         }
-         else if (_Product2.GetId() == Id)
-         {
-            return _Product2;
-         }
-         else if (_Product3.GetId() == Id)
-         {
-            return _Product3;
-         }
-         return null;
-      }
-
-
    }
 }
