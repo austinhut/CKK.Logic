@@ -60,37 +60,37 @@
 
 
       Product GetStoreItem(int productNum)
+      {
+         if (productNum == 1)
          {
-            if (productNum == 1)
-            {
-               return _Product1;
-            }
-            else if (productNum == 2)
-            {
-               return _Product2;
-            }
-            else if (productNum == 3)
-            {
-               return _Product3;
-            }
-            return null;
+            return _Product1;
          }
+         else if (productNum == 2)
+         {
+            return _Product2;
+         }
+         else if (productNum == 3)
+         {
+            return _Product3;
+         }
+         return null;
+      }
 
       Product FindStoreItemById(int Id)
+      {
+         if (_Product1.GetId() == Id)
          {
-            if (_Product1.GetId() == Id)
-            {
-               return _Product1;
-            }
-            else if (_Product2.GetId() == Id)
-            {
-               return _Product2;
-            }
-            else if (_Product3.GetId() == Id)
-            {
-               return _Product3;
-            }
-            return null;
+            return _Product1;
+         }
+         else if (_Product2.GetId() == Id)
+         {
+            return _Product2;
+         }
+         else if (_Product3.GetId() == Id)
+         {
+            return _Product3;
+         }
+         return null;
          }
       }
    }
