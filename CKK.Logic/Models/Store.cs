@@ -55,11 +55,11 @@ namespace CKK.Logic.Models
          {
             _Product1 = null;
          }
-         else if (_Product2 != null)
+         if (_Product2 != null)
          {
             _Product2 = null;
          }
-         else if (_Product3 != null)
+         if (_Product3 != null)
          {
             _Product3 = null;
          }
