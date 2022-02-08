@@ -35,7 +35,7 @@ namespace CKK.Logic.Models
 
       public void AddStoreItem(Product prod)
       {
-         if (_Product1 == null)
+         if (_Product1 == null)  //test
          {
             _Product1 = prod;
          }
