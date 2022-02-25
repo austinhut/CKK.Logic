@@ -150,14 +150,24 @@
         }
 
 
-        //adds the total price of the products and their selected quantities, then returns the total
+        //adds the total price of the products and their selected quantities(if the is NOT null), then returns the total
         public decimal GetTotal()
         {
-            decimal total;
+            decimal grandTotal = 0;
 
-            total = _Product1.GetTotal() + _Product2.GetTotal() + _Product3.GetTotal();
-
-            return total;
+            if (_Product1 != null)
+            {
+                grandTotal += _Product1.GetTotal();
+            }
+            if (_Product2 != null)
+            {
+                grandTotal += _Product2.GetTotal();
+            }
+            if (_Product3 != null)
+            {
+                grandTotal += _Product3.GetTotal();
+            }
+            return grandTotal;
         }
 
         
