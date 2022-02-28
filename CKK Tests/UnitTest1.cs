@@ -1,5 +1,6 @@
 using System;
 using Xunit;
+using CKK.Logic.Models;
 
 namespace CKK_Tests
 {
@@ -14,10 +15,8 @@ namespace CKK_Tests
 
             decimal expected = 41.96m;
 
-            product = new Product();
+            Product prod = new Product()
             
-            ShoppingCartItem
-
             //Act (Action that is being tested)
             
 
