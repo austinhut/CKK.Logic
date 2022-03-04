@@ -58,21 +58,21 @@
             //if that is the case, the product would not equal what was previously in _Product1, hence it being 
             //equal to null. if the product is equal to null, we then set the value of _Product1 to the instance 
             //of Product (prod) that we are working with. 
-            if (_Product1.GetProduct() == null)
+            if (_Product1 == null)
             {
-                _Product1.SetProduct(prod);
+                _Product1 = new ShoppingCartItem(prod, quantity);
 
                 return _Product1;
             }
-            if (_Product2.GetProduct() == null)
+            if (_Product2 == null)
             {
-                _Product2.SetProduct(prod);
+                _Product2 = new ShoppingCartItem(prod, quantity);
 
                 return _Product2;
             }
-            else if (_Product3.GetProduct() == null)
+            else if (_Product3 == null)
             {
-                _Product3.SetProduct(prod);
+                _Product3 = new ShoppingCartItem(prod, quantity);
 
                 return _Product3;
             }

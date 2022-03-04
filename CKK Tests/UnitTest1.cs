@@ -38,40 +38,62 @@ namespace CKK_Tests
         [Fact]
         public void SucessfullAddProduct()
         {
-            //Arrange (Setting up test)
-            
-            Product expProd = new Product();
-            ShoppingCartItem expCartItem = new ShoppingCartItem (expProd, 2);
+            try
+            {
+                //Arrange (Setting up test)
 
-            //Act (Action that is being tested)
-            var expected = expProd.GetId();
+                Product prodAdd = new Product();
+                Customer cust = new Customer();
+                ShoppingCart newCart = new ShoppingCart(cust);
+
+                //Act (Action that is being tested)
+                
+                cust.SetId(1);
+                prodAdd.SetId(1);
+                
+
+                var actProdAdded = newCart.AddProduct(prodAdd, 3).GetQuantity();
 
 
-            var actual = _Product1.GetProduct().GetId();
+                //Assert (What is to be expected from test compared to actual value)
 
+                Assert.Equal(3, actProdAdded);
+            }
+            catch
+            {
+                throw new Exception("Product was not successfully added");
+            }
 
-            //Assert (What is to be expected from test compared to actual value)
-            Assert.Equal(expected, actual);
         }
 
         [Fact]
         public void SuccessfulRemoveProduct()
         {
-            //Arrange (Setting up test)
-
-            Product expProd = new Product();
-            ShoppingCartItem expCartItem = new ShoppingCartItem(expProd, 1);
-
-            //Act (Action that is being tested)
-
-            
+            try
+            {
+                //Arrange (Setting up test)
+                Product prodRemove = new Product();
+                Customer cust = new Customer();
+                ShoppingCart newCart = new ShoppingCart(cust);
 
 
+                //Act (Action that is being tested)
+
+                //
+                var actProdAdd = newCart.AddProduct(prodRemove, 3);
+
+                var actProdRemove = newCart.RemoveProduct(prodRemove, 2).GetQuantity();
 
 
 
-            //Assert (What is to be expected from test compared to actual value)
-            //Assert.Equal(expProd, _Product1);
+
+                //Assert (What is to be expected from test compared to actual value)
+                Assert.Equal(1, actProdRemove);
+            }
+            catch
+            {
+                throw new Exception("Product was not removed successfully");
+            }
         }
     }
 }
