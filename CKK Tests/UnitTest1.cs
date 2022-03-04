@@ -13,26 +13,33 @@ namespace CKK_Tests
         [Fact]
         public void TotalOfProductIsCorrect()
         {
-            //Arrange (Setting up test)
-           
-            decimal expPrice = 10.49m;
-            decimal expQuantity = 3m;
+            try
+            {
+                //Arrange (Setting up test)
+
+                decimal expPrice = 10.49m;
+                decimal expQuantity = 3m;
 
 
-            //Customer cust = new Customer();
-            Product prod = new Product();
-            ShoppingCartItem cartItem = new ShoppingCartItem(prod, 3);
-            //ShoppingCart cart = new ShoppingCart(cust);
+                //Customer cust = new Customer();
+                Product prod = new Product();
+                ShoppingCartItem cartItem = new ShoppingCartItem(prod, 3);
+                //ShoppingCart cart = new ShoppingCart(cust);
 
-            //Act (Action that is being tested)
-           
-            decimal expected = expPrice * expQuantity;
+                //Act (Action that is being tested)
 
-            decimal actual = cartItem.GetTotal();
+                decimal expected = expPrice * expQuantity;
 
-            //Assert (What is to be expected from test compared to actual value)
-           
-            Assert.Equal(expected, actual);
+                decimal actual = cartItem.GetTotal();
+
+                //Assert (What is to be expected from test compared to actual value)
+
+                Assert.Equal(expected, actual);
+            }
+            catch
+            {
+                throw new Exception("Total of product is incorrect");
+            }
         }
 
         [Fact]
