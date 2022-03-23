@@ -1,13 +1,34 @@
-﻿namespace CKK.Logic.Models
-{
-    public class Store
-    {
-        private int _Id;
-        private string _Name;
-        private Product _Product1;
-        private Product _Product2;
-        private Product _Product3;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
+
+namespace CKK.Logic.Models
+{
+   public class Store
+   {
+      private int _Id;
+      private string _Name;
+      //private Product _Product1;
+      //private Product _Product2;
+      //private Product _Product3;
+
+      private StoreItem Items = new List<StoreItem>();
+
+
+
+
+      //"Store" constructor
+      public Store(int Id, string Name)
+      {
+         _Id = Id;
+         _Name = Name;
+      }
+
+
+      
 
         public int GetId()
         {
