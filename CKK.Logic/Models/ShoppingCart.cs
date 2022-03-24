@@ -1,13 +1,17 @@
-﻿namespace CKK.Logic.Models
+﻿using System.Collections.Generic;
+
+namespace CKK.Logic.Models
 {
     public class ShoppingCart
     {
         private Customer Customer;              //customer instance variable
-        private ShoppingCartItem _Product1;     //shopping cart product 1 instance variable
-        private ShoppingCartItem _Product2;     //shopping cart product 2 instance variable
-        private ShoppingCartItem _Product3;     //shopping cart product 3 instance variable
+        //private ShoppingCartItem _Product1;     //shopping cart product 1 instance variable
+        //private ShoppingCartItem _Product2;     //shopping cart product 2 instance variable
+        //private ShoppingCartItem _Product3;     //shopping cart product 3 instance variable
 
+      private List<ShoppingCartItem> Products = new List<ShoppingCartItem>();
 
+        
         //Shopping Cart constructor
         public ShoppingCart(Customer cust)
         {
@@ -172,7 +176,7 @@
 
         
         //returns the product in whichever product slot is being summoned (productNum1, 1, or 3)
-        public ShoppingCartItem GetProduct(int productNum)
+        public List<ShoppingCartItem> GetProduct()
         {
             if (productNum == 1)
             {
