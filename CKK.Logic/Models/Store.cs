@@ -11,15 +11,8 @@ namespace CKK.Logic.Models
    {
       private int _Id;
       private string _Name;
-      private Store store;
-      //private Product _Product1;
-      //private Product _Product2;
-      //private Product _Product3;
 
       private List<StoreItem> Items;
-
-
-
 
       //"Store" constructor
       public Store()
@@ -47,7 +40,7 @@ namespace CKK.Logic.Models
       public StoreItem AddStoreItem(Product prod, int quantity)
       {
 
-         var exists = FindStoreItemById(prod.GetId());
+         var existsAdd = FindStoreItemById(prod.GetId());
 
          if (quantity < 0)
          {
@@ -55,71 +48,83 @@ namespace CKK.Logic.Models
          }
 
 
-         if (exists == null)
+         if (existsAdd == null)
          {
-            StoreItem newItem = new StoreItem(prod, quantity);
-            Items.Add(newItem);
+            StoreItem newItemAdd = new StoreItem(prod, quantity);
+            Items.Add(newItemAdd);
             
-            return newItem;
+            return newItemAdd;
 
          }
          else
          {
-            exists.SetQuantity(exists.GetQuantity() + quantity);
-            return exists;
+            existsAdd.SetQuantity(existsAdd.GetQuantity() + quantity);
+            return existsAdd;
          }
          
 
       }
-      public StoreItem RemoveStoreItem(int id, int productNum)
+      public StoreItem RemoveStoreItem(int id, int quantity)
       {
-         if (productNum == 1)
-         {
-            _Product1 = null;
-         }
-         else if (productNum == 2)
-         {
-            _Product2 = null;
-         }
-         else if (productNum == 3)
-         {
-            _Product3 = null;
-         }
+         Product prod = new Product();
 
+         var existsRemv = FindStoreItemById(prod.GetId());
+
+         
+
+         
+         //if quantity is at zero, the quantity shall remain zero
+         if (quantity <= 0)
+         {
+            return null;
+         }
+         
+         //
+         if (existsRemv != null)
+         {
+            if (existsRemv.GetQuantity() <= quantity)
+            {
+               existsRemv.SetQuantity(0);
+               
+            }
+            else
+            {
+               existsRemv.SetQuantity(existsRemv.GetQuantity() - quantity);
+            }
+            return existsRemv;
+         }
+         else
+         {
+            return null;
+         }
       }
 
       public StoreItem FindStoreItemById(int Id)
       {
-         if (_Product1.GetId() == Id)
+         Product prod = new Product();
+         StoreItem findItem = new StoreItem(prod, Id);
+
+
+         if (Id == findItem.GetProduct().GetId())
          {
-            return _Product1;
+            return findItem;
          }
-         else if (_Product2.GetId() == Id)
+         else
          {
-            return _Product2;
+            return null;
          }
-         else if (_Product3.GetId() == Id)
-         {
-            return _Product3;
-         }
-         return null;
+
       }
 
       public List<StoreItem> GetStoreItems()
       {
-         if (productNum == 1)
-         {
-            return _Product1;
-         }
-         else if (productNum == 2)
-         {
-            return _Product2;
-         }
-         else if (productNum == 3)
-         {
-            return _Product3;
-         }
-         return null;
+         return Items;
+         
+         //foreach (var element in Items)
+         //{
+         //   return element;
+         //}
+
       }
 
 

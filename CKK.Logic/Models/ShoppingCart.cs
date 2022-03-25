@@ -9,13 +9,14 @@ namespace CKK.Logic.Models
         //private ShoppingCartItem _Product2;     //shopping cart product 2 instance variable
         //private ShoppingCartItem _Product3;     //shopping cart product 3 instance variable
 
-      private List<ShoppingCartItem> Products = new List<ShoppingCartItem>();
+        private List<ShoppingCartItem> Products;
 
         
         //Shopping Cart constructor
         public ShoppingCart(Customer cust)
         {
             Customer = cust;
+            Products = new List<ShoppingCartItem>();
         }
 
         //calling method GetId from Customer class
@@ -36,26 +37,29 @@ namespace CKK.Logic.Models
 
             //checking for a valid product (hence != null) AND checks to make sure that the product and it's
             //ID are equal this instance of prod and it's corresponding ID.
-            if (_Product1 != null && _Product1.GetProduct().GetId() == prod.GetId())
-            {
-                _Product1.SetQuantity(_Product1.GetQuantity() + quantity);
+            
+            
+            //if (_Product1 != null && _Product1.GetProduct().GetId() == prod.GetId())
+            //{
+            //    _Product1.SetQuantity(_Product1.GetQuantity() + quantity);
 
-                return _Product1;
-            }
-            else if (_Product2 != null && _Product2.GetProduct().GetId() == prod.GetId())
-            {
-                _Product2.SetQuantity(_Product2.GetQuantity() + quantity);
+            //    return _Product1;
+            //}
+            //else if (_Product2 != null && _Product2.GetProduct().GetId() == prod.GetId())
+            //{
+            //    _Product2.SetQuantity(_Product2.GetQuantity() + quantity);
 
-                return _Product2;
-            }
+            //    return _Product2;
+            //}
 
-            else if (_Product3 != null && _Product3.GetProduct().GetId() == prod.GetId())
-            {
-                _Product3.SetQuantity(_Product3.GetQuantity() + quantity);
+            //else if (_Product3 != null && _Product3.GetProduct().GetId() == prod.GetId())
+            //{
+            //    _Product3.SetQuantity(_Product3.GetQuantity() + quantity);
 
-                return _Product3;
-            }
+            //    return _Product3;
+            //}
 
+           
             //checking for instance where a new product is added
 
             //the condition of the if statement checks to see if the new product is being added to _Product1.
