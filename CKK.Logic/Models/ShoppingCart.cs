@@ -29,6 +29,8 @@ namespace CKK.Logic.Models
         public ShoppingCartItem AddProduct(Product prod, int quantity)
         {
 
+            var productAdd = prod.GetId();
+         
             //checking for a valid quantity of product before continuing 
             if (quantity < 1)
             {
@@ -38,6 +40,10 @@ namespace CKK.Logic.Models
             //checking for a valid product (hence != null) AND checks to make sure that the product and it's
             //ID are equal this instance of prod and it's corresponding ID.
             
+            if (productAdd != 0 && productAdd.)
+            {
+            ShoppingCartItem newItemAdd = new ShoppingCartItem(prod, quantity);
+            }
             
             //if (_Product1 != null && _Product1.GetProduct().GetId() == prod.GetId())
             //{
