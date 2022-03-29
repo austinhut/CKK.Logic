@@ -45,7 +45,7 @@ namespace CKK_Tests
             {
                 //Arrange (Setting up test)
 
-                Product prodAdd = new Product();
+                Product prodAdd = new();
                 Customer cust = new Customer();
                 ShoppingCart newCart = new ShoppingCart(cust);
 
@@ -75,7 +75,7 @@ namespace CKK_Tests
             try
             {
                 //Arrange (Setting up test)
-                Product prodRemove = new Product();
+                Product prodRemove = new();
                 Customer cust = new Customer();
                 ShoppingCart newCart = new ShoppingCart(cust);
 
@@ -83,15 +83,15 @@ namespace CKK_Tests
                 //Act (Action that is being tested)
 
                 
-                var actProdAdd = newCart.AddProduct(prodRemove, 3);
+                newCart.AddProduct(prodRemove, 3);
 
-                var actProdRemove = newCart.RemoveProduct(prodRemove, 2).GetQuantity();
+               var actProdAdd = newCart.RemoveProduct(prodRemove, 2).GetQuantity();
 
 
 
 
                 //Assert (What is to be expected from test compared to actual value)
-                Assert.Equal(1, actProdRemove);
+                Assert.Equal(1, actProdAdd);
             }
             catch
             {

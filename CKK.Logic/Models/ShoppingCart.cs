@@ -88,8 +88,6 @@ namespace CKK.Logic.Models
             else
             {
                existsRemv.SetQuantity(existsRemv.GetQuantity() - quantity);
-
-              
             }
             return existsRemv;
          }
