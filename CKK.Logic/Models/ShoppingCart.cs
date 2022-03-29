@@ -121,20 +121,22 @@ namespace CKK.Logic.Models
       //adds the total price of the products and their selected quantities(if the is NOT null), then returns the total
       public decimal GetTotal()
       {
-
-         Product prod = new Product();
          
          decimal grandTotal = 0;
 
-         if (prod != null)
+         foreach (var element in Products)
          {
-            foreach (var element in Products)
-            {
-               grandTotal += element.GetTotal();
-            }
-            
+            var Price = element.GetProduct().GetPrice();
+            var Qty = element.GetQuantity();
+            decimal Total = Price * Qty;
+            grandTotal = Total;
+
+            //grandTotal += element.GetTotal();
          }
+         
          return grandTotal;
+
+
       }
 
 
