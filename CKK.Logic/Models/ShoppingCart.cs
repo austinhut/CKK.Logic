@@ -88,6 +88,8 @@ namespace CKK.Logic.Models
             else
             {
                existsRemv.SetQuantity(existsRemv.GetQuantity() - quantity);
+
+              
             }
             return existsRemv;
          }
@@ -121,12 +123,16 @@ namespace CKK.Logic.Models
       {
 
          Product prod = new Product();
-         ShoppingCartItem getItem = new ShoppingCartItem(prod, 1);
+         
          decimal grandTotal = 0;
 
-         foreach (var element in Products)
+         if (prod != null)
          {
-            grandTotal += element.GetTotal();
+            foreach (var element in Products)
+            {
+               grandTotal += element.GetTotal();
+            }
+            
          }
          return grandTotal;
       }
