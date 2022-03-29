@@ -19,6 +19,7 @@ namespace CKK_Tests
 
                 Product prod = new Product();
                 ShoppingCartItem cartItem = new ShoppingCartItem(prod, 3);
+               cartItem.GetProduct().SetPrice(expPrice);
                 
 
                 //Act (Action that is being tested)
@@ -81,7 +82,7 @@ namespace CKK_Tests
 
                 //Act (Action that is being tested)
 
-                //
+                
                 var actProdAdd = newCart.AddProduct(prodRemove, 3);
 
                 var actProdRemove = newCart.RemoveProduct(prodRemove, 2).GetQuantity();
