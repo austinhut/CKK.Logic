@@ -128,8 +128,9 @@ namespace CKK.Logic.Models
          {
             var Price = element.GetProduct().GetPrice();
             var Qty = element.GetQuantity();
+            
             decimal Total = Price * Qty;
-            grandTotal = Total;
+            grandTotal += Total;
 
             //grandTotal += element.GetTotal();
          }
