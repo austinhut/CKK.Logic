@@ -133,7 +133,7 @@ namespace CKK.Logic.Models
 
 
       //returns the product in whichever product slot is being summoned (productNum1, 1, or 3)
-      public List<ShoppingCartItem> GetProduct()
+      public List<ShoppingCartItem> GetProducts()
       {
          return Products;
 
