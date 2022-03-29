@@ -119,12 +119,6 @@ namespace CKK.Logic.Models
       public List<StoreItem> GetStoreItems()
       {
          return Items;
-         
-         //foreach (var element in Items)
-         //{
-         //   return element;
-         //}
-
       }
 
 
