@@ -72,31 +72,40 @@ namespace CKK_Tests
         [Fact]
         public void SuccessfulRemoveProduct()
         {
-            try
-            {
-                //Arrange (Setting up test)
-                Product prodRemove = new();
-                Customer cust = new Customer();
-                ShoppingCart newCart = new ShoppingCart(cust);
+        try
+        {
+           //Arrange (Setting up test)
+           Product prodRemove = new();
+           Customer cust = new Customer();
+           ShoppingCart newCart = new ShoppingCart(cust);
+           Store newStore = new();
+           
+           var prodRemv = new Product();
+
+           prodRemv.SetId(1);
 
 
-                //Act (Action that is being tested)
-
-                
-                newCart.AddProduct(prodRemove, 3);
-
-               var actProdAdd = newCart.RemoveProduct(prodRemove, 2).GetQuantity();
+           //Act (Action that is being tested)
 
 
+           newStore.AddStoreItem(prodRemv, 3);
+
+           var prodRmv = newStore.RemoveStoreItem(prodRemove.GetId(), 2).GetQuantity();
+
+           
 
 
-                //Assert (What is to be expected from test compared to actual value)
-                Assert.Equal(1, actProdAdd);
-            }
-            catch
-            {
-                throw new Exception("Product was not removed successfully");
-            }
+           //Assert (What is to be expected from test compared to actual value)
+           Assert.Equal(1, prodRmv);
+        }
+
+        catch
+           {
+           throw new Exception("Product was not removed successfully");
+           }
         }
     }
 }
+
+
+

@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
 namespace CKK.Logic.Models
@@ -52,7 +49,7 @@ namespace CKK.Logic.Models
          {
             StoreItem newItemAdd = new StoreItem(prod, quantity);
             Items.Add(newItemAdd);
-            
+
             return newItemAdd;
 
          }
@@ -61,7 +58,7 @@ namespace CKK.Logic.Models
             existsAdd.SetQuantity(existsAdd.GetQuantity() + quantity);
             return existsAdd;
          }
-         
+
 
       }
       public StoreItem RemoveStoreItem(int id, int quantity)
@@ -70,22 +67,21 @@ namespace CKK.Logic.Models
 
          var existsRemv = FindStoreItemById(prod.GetId());
 
-         
 
-         
+
+
          //if quantity is at zero, the quantity shall remain zero
          if (quantity <= 0)
          {
             return null;
          }
-         
+
          //
          if (existsRemv != null)
          {
             if (existsRemv.GetQuantity() <= quantity)
             {
                existsRemv.SetQuantity(0);
-               
             }
             else
             {
@@ -101,26 +97,19 @@ namespace CKK.Logic.Models
 
       public StoreItem FindStoreItemById(int Id)
       {
-         Product prod = new Product();
-         StoreItem findItem = new StoreItem(prod, Id);
-
-
-         if (Id == findItem.GetProduct().GetId())
-         {
-            return findItem;
-         }
-         else
-         {
-            return null;
-         }
+         Product prod = new();
+         return Items.FirstOrDefault(p => prod.GetId() == Id);
 
       }
 
       public List<StoreItem> GetStoreItems()
       {
+         //LINQ count of total list contents
+         int totalElements = Items.Count();
+
+         var distinctElements = Items.Distinct();
+
          return Items;
       }
-
-
    }
 }

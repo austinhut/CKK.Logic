@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace CKK.Logic.Models
 {
    public class ShoppingCart
    {
       private Customer Customer;   //customer instance variable
-                                              
+
 
       private List<ShoppingCartItem> Products;
 
@@ -16,6 +17,10 @@ namespace CKK.Logic.Models
          Customer = cust;
          Products = new List<ShoppingCartItem>();
       }
+
+
+
+
 
       //calling method GetId from Customer class
       public int GetCustomerId()
@@ -61,33 +66,18 @@ namespace CKK.Logic.Models
       }
 
 
-      //this method removes a single quantity of a product using the product's ID
-      //if the ID matches, a single "quantity" is subracted from the existing quantity 
-      //and the new quantity is set through the set quantity accessor
-      public ShoppingCartItem RemoveProduct(Product prod, int quantity)
+      public ShoppingCartItem RemoveProduct(int id, int quantity)
       {
-         var existsRemv = GetProductById(prod.GetId());
+         var existsRemv = GetProductById(id);
 
-         //if the value is going to be less than or equal to zero at the end,
-         //then it SHOULD remove the item from the shopping cart but still return
-         //the ShoppingCartItem with a quantity of 0.*
-         if (quantity <= 0)
+         if (existsRemv != null && existsRemv.GetProduct().GetId() == id)
          {
-            //not sure if right, ask Q about this
-            Products.Remove(existsRemv);
 
-            return null;
-         }
+            existsRemv.SetQuantity(existsRemv.GetQuantity() - quantity);
 
-         if (existsRemv != null)
-         {
-            if (existsRemv.GetQuantity() <= quantity)
+            if (existsRemv.GetQuantity() < 0)
             {
                existsRemv.SetQuantity(0);
-            }
-            else
-            {
-               existsRemv.SetQuantity(existsRemv.GetQuantity() - quantity);
             }
             return existsRemv;
          }
@@ -95,7 +85,6 @@ namespace CKK.Logic.Models
          {
             return null;
          }
-
       }
 
       //search for a specfic product by its product id, returns the product with a matching id, else returns null
@@ -119,31 +108,30 @@ namespace CKK.Logic.Models
       //adds the total price of the products and their selected quantities(if the is NOT null), then returns the total
       public decimal GetTotal()
       {
-         
+
          decimal grandTotal = 0;
 
          foreach (var element in Products)
          {
             var Price = element.GetProduct().GetPrice();
             var Qty = element.GetQuantity();
-            
+
             decimal Total = Price * Qty;
             grandTotal += Total;
 
             //grandTotal += element.GetTotal();
          }
-         
          return grandTotal;
-
-
       }
 
 
       //returns the product in whichever product slot is being summoned (productNum1, 1, or 3)
       public List<ShoppingCartItem> GetProducts()
       {
-         return Products;
+         //LINQ count of list contents
+         int totalElements = Products.Count();
 
+         return Products;
       }
    }
 }
