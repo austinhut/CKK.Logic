@@ -71,7 +71,7 @@ namespace CKK.Logic.Models
 
 
          //if quantity is at zero, the quantity shall remain zero
-         if (quantity <= 0)
+         if (quantity < 0)
          {
             return null;
          }
