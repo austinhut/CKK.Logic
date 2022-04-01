@@ -71,6 +71,7 @@ namespace CKK.Logic.Models
          {
             if ((existsRemv.GetQuantity() - quantity) < 0) 
             {
+               
                existsRemv.SetQuantity(0);
             }
             else
@@ -88,7 +89,8 @@ namespace CKK.Logic.Models
       public StoreItem FindStoreItemById(int Id)
       {
          Product prod = new();
-         return Items.FirstOrDefault(p => prod.GetId() == Id);
+         return Items.Where(p => prod.GetId() == Id).FirstOrDefault();
+         
 
       }
 
