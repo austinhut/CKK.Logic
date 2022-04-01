@@ -78,6 +78,8 @@ namespace CKK.Logic.Models
             if (existsRemv.GetQuantity() < 0)
             {
                existsRemv.SetQuantity(0);
+               
+               Products.Remove(existsRemv);
             }
             return existsRemv;
          }
@@ -91,17 +93,7 @@ namespace CKK.Logic.Models
       public ShoppingCartItem GetProductById(int Id)
       {
 
-         Product prod = new Product();
-         ShoppingCartItem getItem = new ShoppingCartItem(prod, Id);
-
-         if (Id == getItem.GetProduct().GetId())
-         {
-            return getItem;
-         }
-         else
-         {
-            return null;
-         }
+         return Products.FirstOrDefault(p => p.GetProduct().GetId() == Id);
       }
 
 
