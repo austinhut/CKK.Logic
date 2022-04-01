@@ -67,17 +67,14 @@ namespace CKK.Logic.Models
 
          var existsRemv = FindStoreItemById(prod.GetId());
 
-
-
-
          //if quantity is at zero, the quantity shall remain zero
-         if (quantity < 0)
+         if (prod.GetId() == id && quantity < 0)
          {
             return null;
          }
 
          //
-         if (existsRemv != null)
+         if (prod.GetId() == id && existsRemv != null )
          {
             if (existsRemv.GetQuantity() < quantity)
             {
