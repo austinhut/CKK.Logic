@@ -107,8 +107,6 @@ namespace CKK.Logic.Models
          //LINQ count of total list contents
          int totalElements = Items.Count();
 
-         var distinctElements = Items.Distinct();
-
          return Items;
       }
    }
