@@ -75,7 +75,7 @@ namespace CKK.Logic.Models
 
             existsRemv.SetQuantity(existsRemv.GetQuantity() - quantity);
 
-            if ((existsRemv.GetQuantity() - quantity) <= 0)
+            if ((existsRemv.GetQuantity() - quantity) < 0)
             {
                existsRemv.SetQuantity(0);
                
