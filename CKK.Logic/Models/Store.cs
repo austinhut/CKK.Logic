@@ -79,7 +79,7 @@ namespace CKK.Logic.Models
          //
          if (existsRemv != null)
          {
-            if (existsRemv.GetQuantity() <= quantity)
+            if (existsRemv.GetQuantity() < quantity)
             {
                existsRemv.SetQuantity(0);
             }
