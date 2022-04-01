@@ -63,6 +63,7 @@ namespace CKK.Logic.Models
       }
       public StoreItem RemoveStoreItem(int id, int quantity)
       {
+         //test
          Product prod = new Product();
 
          var existsRemv = FindStoreItemById(prod.GetId());
