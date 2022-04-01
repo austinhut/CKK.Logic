@@ -69,15 +69,13 @@ namespace CKK.Logic.Models
 
          if (existsRemv != null && existsRemv.GetProduct().GetId() == id)
          {
-            if ((existsRemv.GetQuantity() - quantity) < 0) 
-            {
+            existsRemv.SetQuantity(existsRemv.GetQuantity() - quantity);
 
+            if ((existsRemv.GetQuantity() - quantity) < 0)
+            {
                existsRemv.SetQuantity(0);
 
-            }
-            else
-            {
-               existsRemv.SetQuantity(existsRemv.GetQuantity() - quantity);
+               Items.Remove(existsRemv);
             }
             return existsRemv;
          }
