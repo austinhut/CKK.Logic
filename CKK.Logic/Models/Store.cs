@@ -89,7 +89,8 @@ namespace CKK.Logic.Models
       public StoreItem FindStoreItemById(int Id)
       {
          Product prod = new();
-         return Items.Where(p => prod.GetId() == Id).FirstOrDefault();
+         StoreItem result = Items.Where(match => prod.GetId() == Id).FirstOrDefault();
+         return result;
          
 
       }
