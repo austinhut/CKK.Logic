@@ -63,18 +63,20 @@ namespace CKK.Logic.Models
       }
       public StoreItem RemoveStoreItem(int id, int quantity)
       {
-         Product prod = new Product();
+         //Product prod = new Product();
 
-         var existsRemv = FindStoreItemById(prod.GetId());
+         var existsRemv = FindStoreItemById(id);
 
          if (existsRemv != null && existsRemv.GetProduct().GetId() == id)
          {
 
             existsRemv.SetQuantity(existsRemv.GetQuantity() - quantity);
 
-            if ((existsRemv.GetQuantity() - quantity) < 0)
+            if ((existsRemv.GetQuantity() - quantity) <= 0)
             {
+               
                existsRemv.SetQuantity(0);
+               
             }
             
             return existsRemv;
