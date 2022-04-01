@@ -63,7 +63,6 @@ namespace CKK.Logic.Models
       }
       public StoreItem RemoveStoreItem(int id, int quantity)
       {
-         //test
          Product prod = new Product();
 
          var existsRemv = FindStoreItemById(prod.GetId());
@@ -75,6 +74,10 @@ namespace CKK.Logic.Models
 
                existsRemv.SetQuantity(0);
 
+            }
+            else
+            {
+               existsRemv.SetQuantity(existsRemv.GetQuantity() - quantity);
             }
             return existsRemv;
          }
